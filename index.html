@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Fabio</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <div id="progress-bar"></div>
+
+<nav class="navbar">
+    <div class="logo">Fabio</div>
+
+    <div class="menu-toggle" id="menu-toggle">
+        ☰
+    </div>
+
+    <div class="theme-toggle" id="theme-toggle">🌙</div>
+
+    <ul class="nav-menu">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">Tentang</a></li>
+        <li><a href="#skill" class="nav-link">Skill</a></li>
+        <li><a href="#project" class="nav-link">Project</a></li>
+        <li><a href="#contact" class="nav-link">Kontak</a></li>
+    </ul>
+</nav>
+
+
+<section id="home" class="home">
+    <div class="container">
+        <img src="img/foto.jpg" class="foto">
+
+        <h1>Saya <span id="typing"></span></h1>
+        <p>Mahasiswa Teknologi Informasi</p>
+
+        <div class="home-buttons">
+            <a href="file/" target="_blank" class="btn-download">
+                <i class="fas fa-file-alt"></i> Lihat CV
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="about" class="about">
+    <div class="container reveal">
+        <h2>Tentang Saya</h2>
+        <p>
+            Saya adalah fabio al iqbal setyo nugroho
+        </p>
+    </div>
+</section>
+
+
+<section id="skill" class="skill">
+    <div class="container reveal">
+        <h2>Skill</h2>
+        <ul class="skill-list">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>C++</li>
+        </ul>
+    </div>
+</section>
+
+
+<section id="project" class="project">
+    <div class="container reveal">
+        <h2>Project</h2>
+
+        <div class="projects">
+
+            <div class="project-card">
+                <img src="img/project1.png" alt="Project">
+
+                <div class="project-info">
+                    <h3>Website Portofolio</h3>
+                    <p>Membuat website portofolio pribadi menggunakan HTML, CSS dan JavaScript.</p>
+
+                    <div class="project-btn">
+                        <a href="#" target="_blank" class="btn demo">Demo</a>
+                        <a href="#" target="_blank" class="btn code">Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section id="contact" class="contact">
+    <div class="container reveal">
+        <h2>Kontak Saya</h2>
+
+        <div class="socials">
+            <a href="https://tiktok.com/@fbio.iqbal_" target="_blank" class="social tiktok">
+                <i class="fab fa-tiktok"></i> Tiktok
+            </a>
+
+            <a href="https://instagram.com/fbio.iqbal_" target="_blank" class="social instagram">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+
+            <a href="https://wa.me/6285735723330" target="_blank" class="social whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+
+        <div class="copy-email">
+            <button id="copyEmailBtn">
+                <i class="fas fa-envelope"></i> Salin Email
+            </button>
+            <span id="copyMsg"></span>
+        </div>
+
+    </div>
+</section>
+
+
+<script src="script.js"></script>
+</body>
+</html>
