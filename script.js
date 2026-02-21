@@ -92,7 +92,7 @@ window.addEventListener("scroll", () => {
     document.getElementById("progress-bar").style.width = progress + "%";
 });
 
-const email = "aliqbalfabio@gmail.com";
+const email = "aliqbalfabios@gmail.com";
 
 const copyBtn = document.getElementById("copyEmailBtn");
 const copyMsg = document.getElementById("copyMsg");
@@ -107,3 +107,14 @@ copyBtn.addEventListener("click", () => {
         copyMsg.classList.remove("show");
     }, 2000);
 });
+
+document.querySelectorAll('.gallery-item img').forEach(image =>{
+    image.onclick = () =>{
+        document.getElementById('popup-image').style.display = 'flex';
+        document.querySelector('#popup-image img').src = image.getAttribute('src');
+    }
+});
+
+document.querySelector('#popup-image span').onclick = () =>{
+    document.getElementById('popup-image').style.display = 'none';
+};
