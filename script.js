@@ -118,3 +118,28 @@ document.querySelectorAll('.gallery-item img').forEach(image =>{
 document.querySelector('#popup-image span').onclick = () =>{
     document.getElementById('popup-image').style.display = 'none';
 };
+
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        backToTop.style.display = "block";
+    } else {
+        backToTop.style.display = "none";
+    }
+});
+
+backToTop.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+
+    setTimeout(() => {
+        loader.classList.add("hide");
+    }, 3500);
+});
