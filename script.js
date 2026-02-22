@@ -19,21 +19,29 @@ function reveal(){
             el.classList.add("active");
         }
     });
-}window.addEventListener("scroll", reveal);
+}
+window.addEventListener("scroll", reveal);
 reveal();
 
-const text = "Fabio Al Iqbal";
-let index = 0;
+document.addEventListener("DOMContentLoaded", function(){
 
-function typeEffect(){
-    if(index < text.length){
-        document.getElementById("typing").innerHTML += text.charAt(index);
-        index++;
-        setTimeout(typeEffect, 80);
+    const text = "Fabio Al Iqbal";
+    let index = 0;
+    const typingEl = document.getElementById("typing");
+
+    function typeEffect(){
+        if(index < text.length){
+            typingEl.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeEffect, 80);
+        }
     }
-}
 
-window.onload = typeEffect;
+    if(typingEl){
+        typeEffect();
+    }
+
+});
 
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".nav-link");
@@ -43,9 +51,8 @@ window.addEventListener("scroll", () => {
 
     sections.forEach(section => {
         const sectionTop = section.offsetTop - 150;
-        const sectionHeight = section.clientHeight;
 
-        if (scrollY >= sectionTop) {
+        if (window.scrollY >= sectionTop) {
             current = section.getAttribute("id");
         }
     });
@@ -58,88 +65,105 @@ window.addEventListener("scroll", () => {
     });
 });
 
-const toggle = document.getElementById("menu-toggle");
-const navMenu = document.querySelector(".nav-menu");
+const menuToggle = document.getElementById("menu-toggle");
+const navMenu = document.getElementById("nav-menu");
 
-toggle.addEventListener("click", () => {
-    navMenu.classList.toggle("show");
-});
+if (menuToggle && navMenu) {
+    menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+    });
+}
 
 const themeToggle = document.getElementById("theme-toggle");
 
-themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
+if(themeToggle){
+    themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
 
-    if(document.body.classList.contains("dark")){
+        if(document.body.classList.contains("dark")){
+            themeToggle.textContent = "☀️";
+            localStorage.setItem("theme","dark");
+        }else{
+            themeToggle.textContent = "🌙";
+            localStorage.setItem("theme","light");
+        }
+    });
+
+    if(localStorage.getItem("theme") === "dark"){
+        document.body.classList.add("dark");
         themeToggle.textContent = "☀️";
-        localStorage.setItem("theme","dark");
-    }else{
-        themeToggle.textContent = "🌙";
-        localStorage.setItem("theme","light");
     }
-});
-
-if(localStorage.getItem("theme") === "dark"){
-    document.body.classList.add("dark");
-    themeToggle.textContent = "☀️";
 }
 
 window.addEventListener("scroll", () => {
-    let scrollTop = document.documentElement.scrollTop;
-    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    let progress = (scrollTop / height) * 100;
-
-    document.getElementById("progress-bar").style.width = progress + "%";
+    const progressBar = document.getElementById("progress-bar");
+    if(progressBar){
+        let scrollTop = document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let progress = (scrollTop / height) * 100;
+        progressBar.style.width = progress + "%";
+    }
 });
-
-const email = "aliqbalfabios@gmail.com";
 
 const copyBtn = document.getElementById("copyEmailBtn");
 const copyMsg = document.getElementById("copyMsg");
+const email = "aliqbalfabios@gmail.com";
 
-copyBtn.addEventListener("click", () => {
-    navigator.clipboard.writeText(email);
+if(copyBtn && copyMsg){
+    copyBtn.addEventListener("click", () => {
+        navigator.clipboard.writeText(email);
 
-    copyMsg.innerText = "Email disalin!";
-    copyMsg.classList.add("show");
+        copyMsg.innerText = "Email disalin!";
+        copyMsg.classList.add("show");
 
-    setTimeout(() => {
-        copyMsg.classList.remove("show");
-    }, 2000);
-});
+        setTimeout(() => {
+            copyMsg.classList.remove("show");
+        }, 2000);
+    });
+}
 
 document.querySelectorAll('.gallery-item img').forEach(image =>{
     image.onclick = () =>{
-        document.getElementById('popup-image').style.display = 'flex';
-        document.querySelector('#popup-image img').src = image.getAttribute('src');
+        const popup = document.getElementById('popup-image');
+        if(popup){
+            popup.style.display = 'flex';
+            popup.querySelector("img").src = image.getAttribute('src');
+        }
     }
 });
 
-document.querySelector('#popup-image span').onclick = () =>{
-    document.getElementById('popup-image').style.display = 'none';
-};
+const popupClose = document.querySelector('#popup-image span');
+if(popupClose){
+    popupClose.onclick = () =>{
+        document.getElementById('popup-image').style.display = 'none';
+    };
+}
 
 const backToTop = document.getElementById("backToTop");
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-        backToTop.style.display = "block";
-    } else {
-        backToTop.style.display = "none";
-    }
-});
-
-backToTop.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+if(backToTop){
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            backToTop.style.display = "block";
+        } else {
+            backToTop.style.display = "none";
+        }
     });
-});
 
-window.addEventListener("load", () => {
+    backToTop.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
     const loader = document.getElementById("loader");
 
-    setTimeout(() => {
-        loader.classList.add("hide");
-    }, 3500);
+    if(loader){
+        setTimeout(function () {
+            loader.classList.add("hide");
+        }, 3500);
+    }
 });
