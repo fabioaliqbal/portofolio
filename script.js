@@ -66,7 +66,7 @@ window.addEventListener("scroll", () => {
 });
 
 const menuToggle = document.getElementById("menu-toggle");
-const navMenu = document.getElementById("nav-menu");
+const navMenu = document.querySelector("nav-menu");
 
 if (menuToggle && navMenu) {
     menuToggle.addEventListener("click", () => {
